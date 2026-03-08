@@ -22,6 +22,10 @@ build/
 .DS_Store
 Thumbs.db
 
+# Local reference files
+api_text.py
+descriptions.txt
+
 # Generated output
 data/evaluation_results.json
 
