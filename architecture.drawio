@@ -16,8 +16,8 @@
         </mxCell>
 
         <!-- Entity Linking -->
-        <mxCell id="el1" value="Entity Linking&lt;br&gt;&lt;font style=&quot;font-size:11px;font-weight:normal;&quot;&gt;DBpedia Spotlight API&lt;br&gt;Confidence cascade: 0.35 → 0.2 → heuristic&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="340" y="120" width="320" height="70" as="geometry" />
+        <mxCell id="el1" value="Entity Linking&lt;br&gt;&lt;font style=&quot;font-size:11px;font-weight:normal;&quot;&gt;DBpedia Spotlight API&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="120" width="320" height="55" as="geometry" />
         </mxCell>
 
         <!-- Arrow EL -> SG -->
@@ -26,8 +26,8 @@
         </mxCell>
 
         <!-- SPARQL Generation -->
-        <mxCell id="sg1" value="SPARQL Generation&lt;br&gt;&lt;font style=&quot;font-size:11px;font-weight:normal;&quot;&gt;LLM (qwen3-coder-30b-a3b-instruct)&lt;br&gt;17 few-shot examples&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="340" y="230" width="320" height="70" as="geometry" />
+        <mxCell id="sg1" value="SPARQL Generation&lt;br&gt;&lt;font style=&quot;font-size:11px;font-weight:normal;&quot;&gt;LLM (few-shot prompting)&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="230" width="320" height="55" as="geometry" />
         </mxCell>
 
         <!-- Arrow SG -> EX -->
@@ -121,14 +121,7 @@
           </mxGeometry>
         </mxCell>
 
-        <!-- Labels for paths -->
-        <mxCell id="lbl1" value="Primary Path (~85% of questions, 2-4s)" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=2;fontColor=#82b366;" vertex="1" parent="1">
-          <mxGeometry x="120" y="590" width="280" height="20" as="geometry" />
-        </mxCell>
 
-        <mxCell id="lbl2" value="Fallback Path (~15% of questions, 6-10s)" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=2;fontColor=#b85450;" vertex="1" parent="1">
-          <mxGeometry x="610" y="790" width="260" height="20" as="geometry" />
-        </mxCell>
 
       </root>
     </mxGraphModel>
