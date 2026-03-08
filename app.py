@@ -51,7 +51,7 @@ def chat(message: str, history: list) -> str:
     return "\n".join(parts)
 
 
-with gr.Blocks(title="DBpedia KGQA") as demo:
+with gr.Blocks(title="DBpedia KGQA", theme=gr.themes.Soft()) as demo:
     gr.Markdown("# DBpedia Knowledge Graph Question Answering")
     gr.Markdown(
         "Ask a natural language question and get an answer from "
