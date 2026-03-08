@@ -18,15 +18,12 @@ build/
 *.swp
 *.swo
 
-# Generated output
-data/evaluation_results.json
-
 # OS
 .DS_Store
 Thumbs.db
 
-# Data (keep tracked files, ignore generated)
+# Generated output
 data/evaluation_results.json
 
 # Docs
-docs/*.pdf
+docs/
