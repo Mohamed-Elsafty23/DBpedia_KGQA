@@ -1,6 +1,6 @@
 ---
 title: DBpedia KGQA
-emoji: null
+emoji: 🔍
 colorFrom: blue
 colorTo: gray
 sdk: gradio
