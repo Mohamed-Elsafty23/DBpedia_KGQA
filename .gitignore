@@ -1,0 +1,32 @@
+# Virtual environment
+venv/
+.venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# Environment
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Generated evaluation output
+data/evaluation_results.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Data (keep tracked files, ignore generated)
+data/evaluation_results.json
+
+# Docs
+docs/*.pdf
