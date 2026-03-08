@@ -1,3 +1,3 @@
 ## Team Members
 
-- Mohamed (solo)
+- Mohamed Elsafty
