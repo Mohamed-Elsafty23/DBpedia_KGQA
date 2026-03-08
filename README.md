@@ -11,46 +11,7 @@ retrieval with LLM reasoning when SPARQL fails.
 
 ## Architecture
 
-```
- +---------------------+
- |   User Question     |
- +----------+----------+
-            |
-            v
- +---------------------+       Uses DBpedia Spotlight API
- |   Entity Linking     |       (confidence cascade: 0.35 / 0.2 / heuristic)
- +----------+----------+
-            |
-            v
- +---------------------+       LLM with 17 few-shot examples
- |  SPARQL Generation   |       model: qwen3-coder-30b-a3b-instruct
- +----------+----------+
-            |
-            v
- +---------------------+
- |   Execute Query      |-----> DBpedia SPARQL endpoint
- +----+----------+-----+
-      |          |
-   results    no results / error
-      |          |
-      v          v
- +--------+  +------------------+
- | Format |  |  SPARQL Repair   |   LLM fixes query using error feedback
- | Answer |  +--------+---------+
- +--------+           |
-                    still fails
-                       |
-                       v
-              +------------------+
-              | Subgraph         |   1-hop + 2-hop triples from DBpedia
-              | Retrieval        |   (noisy properties filtered out)
-              +--------+---------+
-                       |
-                       v
-              +------------------+
-              | LLM Reasoning    |   Derives answer from retrieved triples
-              +------------------+
-```
+![Architecture Diagram](architecture.png)
 
 The primary path (SPARQL generation + execution) handles most questions in
 2-4 seconds. The subgraph fallback activates only when SPARQL fails, adding
@@ -106,6 +67,8 @@ python scripts/evaluate.py --limit 50
 ```
 KGQA/
 ├── app.py                   Gradio web interface
+├── architecture.png         Pipeline diagram
+├── architecture.drawio      Diagram source (draw.io)
 ├── kgqa/
 │   ├── config.py            API keys, endpoints, model name
 │   ├── entity_linker.py     DBpedia Spotlight entity linking
