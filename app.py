@@ -2,19 +2,28 @@ import gradio as gr
 from kgqa.pipeline import answer_question
 
 EXAMPLES = [
-    "What is the capital of Germany?",
-    "When was Albert Einstein born?",
-    "Is Berlin the capital of Germany?",
-    "What is the population of London?",
-    "What movies did Brad Pitt star in?",
-    "Who directed the movie Inception?",
-    "What is the birthplace of the author of Harry Potter?",
-    "Which cities in Germany have more than 1 million inhabitants?",
-    "Who are the children of Barack Obama?",
-    "Give me all universities in London.",
+    ["What is the capital of Germany?"],
+    ["When was Albert Einstein born?"],
+    ["Is Berlin the capital of Germany?"],
+    ["What is the population of London?"],
+    ["What movies did Brad Pitt star in?"],
+    ["Who directed the movie Inception?"],
+    ["What is the birthplace of the author of Harry Potter?"],
+    ["Which cities in Germany have more than 1 million inhabitants?"],
+    ["Who are the children of Barack Obama?"],
+    ["Give me all universities in London."],
 ]
 
-def chat(message: str, history: list) -> str:
+PLACEHOLDER = (
+    "<center>"
+    "<h2>DBpedia Knowledge Graph QA</h2>"
+    "<p>Ask a natural language question and get an answer from "
+    "<a href='https://www.dbpedia.org/'>DBpedia</a>.</p>"
+    "</center>"
+)
+
+
+def respond(message: str, history: list) -> str:
     if not message.strip():
         return "Please enter a question."
 
@@ -39,34 +48,35 @@ def chat(message: str, history: list) -> str:
     return "\n".join(parts)
 
 
-custom_css = """
-.gradio-container {
-    max-width: 900px !important;
-    margin: auto;
-}
-.examples-row .gr-sample-textbox {
-    background: #f0f4f8;
-    border: 1px solid #cbd5e1;
-    border-radius: 8px;
-}
-"""
+theme = gr.themes.Ocean(
+    primary_hue=gr.themes.colors.blue,
+    secondary_hue=gr.themes.colors.cyan,
+    neutral_hue=gr.themes.colors.slate,
+    font=gr.themes.GoogleFont("Inter"),
+)
 
-with gr.Blocks(title="DBpedia KGQA") as demo:
-    gr.Markdown("# DBpedia Knowledge Graph Question Answering")
-    gr.Markdown(
-        "Ask a natural language question and get an answer from "
-        "[DBpedia](https://www.dbpedia.org/)."
-    )
-    gr.ChatInterface(fn=chat, examples=EXAMPLES, cache_examples=False)
+chatbot = gr.Chatbot(
+    placeholder=PLACEHOLDER,
+    height=520,
+    show_label=False,
+)
 
+textbox = gr.Textbox(
+    placeholder="Ask a question about any topic in DBpedia...",
+    show_label=False,
+    scale=7,
+)
+
+demo = gr.ChatInterface(
+    fn=respond,
+    chatbot=chatbot,
+    textbox=textbox,
+    examples=EXAMPLES,
+    cache_examples=False,
+    title="DBpedia Knowledge Graph Question Answering",
+    fill_height=True,
+)
 
 if __name__ == "__main__":
-    demo.launch(
-        css=custom_css,
-        theme=gr.themes.Soft(
-            primary_hue=gr.themes.colors.blue,
-            secondary_hue=gr.themes.colors.slate,
-            neutral_hue=gr.themes.colors.slate,
-        ),
-    )
+    demo.launch(theme=theme)
 
