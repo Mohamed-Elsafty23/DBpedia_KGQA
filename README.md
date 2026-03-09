@@ -1,3 +1,14 @@
+---
+title: DBpedia KGQA
+emoji: 🔍
+colorFrom: blue
+colorTo: gray
+sdk: gradio
+sdk_version: "6.9.0"
+app_file: app.py
+pinned: false
+---
+
 # DBpedia KGQA
 
 Knowledge Graph Question Answering over [DBpedia](https://www.dbpedia.org/).
@@ -26,7 +37,7 @@ a few more seconds for LLM reasoning over the retrieved triples.
 **Requirements:** Python 3.10+, an Academic Cloud API key.
 
 ```bash
-git clone <repo-url> && cd KGQA
+git clone https://github.com/Mohamed-Elsafty23/DBpedia_KGQA.git && cd KGQA
 python -m venv venv && source venv/bin/activate
 pip install -r requirements.txt
 echo "ACADEMIC_CLOUD_API_KEY=your_key" > .env
@@ -121,7 +132,6 @@ current live endpoint: **445 out of 1000** questions are usable.
 - **Query Repair**: Automatic SPARQL retry with error feedback (up to 2 retries)
 - **Subgraph Fallback**: 1-hop + 2-hop retrieval when SPARQL fails, LLM reasoning over triples
 - **Fast Response**: 2-4s for SPARQL path, 5-8s for subgraph fallback
-- **Clean UI**: ChatGPT-style Gradio interface with collapsible SPARQL viewer
 
 ---
 
@@ -135,53 +145,9 @@ current live endpoint: **445 out of 1000** questions are usable.
 
 ---
 
-## Performance
-
-- **LC-QuAD Test Set**: 445 working questions (out of 1000 total)
-- **Simple Questions** (What/When/Who): ~85% accuracy
-- **Complex Questions** (multi-hop, COUNT, filters): ~65% accuracy
-- **Overall LC-QuAD Accuracy**: ~70% on working subset
-
----
-
-## Known Limitations
-
-- DBpedia data quality varies; some properties outdated or missing
-- Very complex multi-hop queries (3+ hops) may fail
-- COUNT queries sensitive to property variations (`dbo:` vs `dbp:`)
-- Non-English questions not supported (DBpedia Spotlight is English-only)
-
----
-
 ## Team
 
-See [TEAM.md](TEAM.md) for full team member details.
-
-**Developed by:** Mohamed  
-**Course:** Advanced AI: NLP and Knowledge Graphs, WiSe 25/26  
-**University:** Leuphana University Lüneburg
-
----
-
-## Example Questions
-
-### ✅ Simple (Direct SPARQL)
-- "What is the capital of Germany?"
-- "When was Albert Einstein born?"
-- "Is Berlin the capital of Germany?"
-- "What is the population of London?"
-
-### ✅ Complex (Multi-hop, Filters, Aggregation)
-- "What is the birthplace of the director of Pulp Fiction?"
-- "Which countries in Europe have a population greater than 50 million?"
-- "How many films did Christopher Nolan direct?"
-- "Which languages are spoken in Switzerland?"
-- "Who are the children of Barack Obama?"
-- "What is the longest river in Africa?"
-
-### ⚠️ Very Complex (May require fallback)
-- "Which city is home to both MIT and Harvard University?"
-- "How many Nobel Prize winners were born in France?"
+- Mohamed Elsafty
 
 ---
 
