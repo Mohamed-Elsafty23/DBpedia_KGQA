@@ -217,7 +217,7 @@ demo = gr.ChatInterface(
     examples=EXAMPLES,
     cache_examples=False,
     title="DBpedia Knowledge Graph QA",
-    description="Ask a natural language question and get an answer from DBpedia.",
+    description="Ask a natural language question and get an answer from <a href='https://www.dbpedia.org/' target='_blank'>DBpedia</a>.",
     fill_height=True,
 )
 
