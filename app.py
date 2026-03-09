@@ -14,13 +14,6 @@ EXAMPLES = [
     "Give me all universities in London.",
 ]
 
-PATH_LABELS = {
-    "sparql": "SPARQL",
-    "subgraph": "Subgraph + LLM",
-    "failed": "No answer found",
-}
-
-
 def chat(message: str, history: list) -> str:
     if not message.strip():
         return "Please enter a question."
@@ -30,13 +23,8 @@ def chat(message: str, history: list) -> str:
     answer = result["answer"]
     sparql = result.get("sparql", "")
     entities = result.get("entities", [])
-    path = result.get("path", "")
-    time_s = result.get("time_s", 0)
-
-    path_label = PATH_LABELS.get(path, path)
 
     parts = [f"**{answer}**"]
-    parts.append(f"\n---\nMethod: {path_label} | Time: {time_s}s")
 
     if entities:
         names = [f"[{e['surface_form']}]({e['uri']})" for e in entities]
@@ -51,7 +39,19 @@ def chat(message: str, history: list) -> str:
     return "\n".join(parts)
 
 
-with gr.Blocks(title="DBpedia KGQA", theme=gr.themes.Soft()) as demo:
+custom_css = """
+.gradio-container {
+    max-width: 900px !important;
+    margin: auto;
+}
+.examples-row .gr-sample-textbox {
+    background: #f0f4f8;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+}
+"""
+
+with gr.Blocks(title="DBpedia KGQA") as demo:
     gr.Markdown("# DBpedia Knowledge Graph Question Answering")
     gr.Markdown(
         "Ask a natural language question and get an answer from "
@@ -61,5 +61,12 @@ with gr.Blocks(title="DBpedia KGQA", theme=gr.themes.Soft()) as demo:
 
 
 if __name__ == "__main__":
-    demo.launch()
+    demo.launch(
+        css=custom_css,
+        theme=gr.themes.Soft(
+            primary_hue=gr.themes.colors.blue,
+            secondary_hue=gr.themes.colors.slate,
+            neutral_hue=gr.themes.colors.slate,
+        ),
+    )
 
