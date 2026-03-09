@@ -18,7 +18,7 @@ PLACEHOLDER = (
     "<center>"
     "<h2>DBpedia Knowledge Graph QA</h2>"
     "<p>Ask a natural language question and get an answer from "
-    "<a href='https://www.dbpedia.org/' style='color:#2563eb'>DBpedia</a>.</p>"
+    "<a href='https://www.dbpedia.org/' style='color:#495057'>DBpedia</a>.</p>"
     "</center>"
 )
 
@@ -27,13 +27,13 @@ CSS = """
 .gradio-container {
     max-width: 960px !important;
     margin: 0 auto;
-    background: #f1f5f9 !important;
+    background: #f8f9fa !important;
 }
 
 /* chatbot area */
 .chatbot {
     background: #ffffff !important;
-    border: 1px solid #cbd5e1 !important;
+    border: 1px solid #dee2e6 !important;
     border-radius: 12px !important;
 }
 
@@ -41,67 +41,67 @@ CSS = """
 .textbox textarea,
 .textbox input {
     background: #ffffff !important;
-    border: 2px solid #94a3b8 !important;
+    border: 2px solid #adb5bd !important;
     border-radius: 10px !important;
     padding: 12px 16px !important;
     font-size: 15px !important;
-    color: #1e293b !important;
+    color: #212529 !important;
 }
 .textbox textarea:focus,
 .textbox input:focus {
-    border-color: #2563eb !important;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15) !important;
+    border-color: #495057 !important;
+    box-shadow: 0 0 0 3px rgba(73, 80, 87, 0.12) !important;
 }
 .textbox textarea::placeholder,
 .textbox input::placeholder {
-    color: #94a3b8 !important;
+    color: #adb5bd !important;
 }
 
 /* example buttons */
 .examples button,
 table.examples button {
-    background: #e2e8f0 !important;
-    border: 1px solid #94a3b8 !important;
+    background: #f1f3f5 !important;
+    border: 1px solid #ced4da !important;
     border-radius: 8px !important;
-    color: #1e293b !important;
+    color: #212529 !important;
     font-size: 14px !important;
     padding: 8px 14px !important;
 }
 .examples button:hover,
 table.examples button:hover {
-    background: #cbd5e1 !important;
-    border-color: #2563eb !important;
+    background: #e9ecef !important;
+    border-color: #495057 !important;
 }
 
 /* send / stop buttons */
 button.primary {
-    background: #2563eb !important;
+    background: #343a40 !important;
     border: none !important;
     border-radius: 10px !important;
     color: #fff !important;
 }
 button.primary:hover {
-    background: #1d4ed8 !important;
+    background: #212529 !important;
 }
 
 /* user message bubble */
 .message.user {
-    background: #2563eb !important;
-    color: #ffffff !important;
+    background: #e9ecef !important;
+    color: #212529 !important;
     border-radius: 12px 12px 2px 12px !important;
 }
 
 /* bot message bubble */
 .message.bot {
-    background: #f8fafc !important;
-    color: #1e293b !important;
-    border: 1px solid #e2e8f0 !important;
+    background: #ffffff !important;
+    color: #212529 !important;
+    border: 1px solid #dee2e6 !important;
     border-radius: 12px 12px 12px 2px !important;
 }
 
 /* title */
 h1 {
-    color: #1e293b !important;
+    color: #212529 !important;
 }
 """
 
@@ -151,7 +151,7 @@ demo = gr.ChatInterface(
     textbox=textbox,
     examples=EXAMPLES,
     cache_examples=False,
-    title="DBpedia Knowledge Graph Question Answering",
+    #title="DBpedia Knowledge Graph Question Answering",
     fill_height=True,
 )
 
@@ -159,9 +159,9 @@ if __name__ == "__main__":
     demo.launch(
         css=CSS,
         theme=gr.themes.Soft(
-            primary_hue=gr.themes.colors.blue,
-            secondary_hue=gr.themes.colors.slate,
-            neutral_hue=gr.themes.colors.slate,
+            primary_hue=gr.themes.colors.gray,
+            secondary_hue=gr.themes.colors.gray,
+            neutral_hue=gr.themes.colors.gray,
             font=gr.themes.GoogleFont("Inter"),
         ),
     )
