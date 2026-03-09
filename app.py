@@ -244,7 +244,7 @@ PLACEHOLDER = """
     gap: 12px;
     font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
 ">
-    <h2 style="margin:0; font-size:26px; font-weight:600; color:#0d0d0d; letter-spacing:-0.02em;">
+    <h2 style="margin:0; font-size:26px; font-weight:600; color:#0d0d0d; letter-spacing:-0.02em; text-align:center;">
         DBpedia Knowledge Graph QA
     </h2>
     <p style="margin:0; font-size:14px; color:#6e6e80; max-width:380px; text-align:center; line-height:1.5;">
