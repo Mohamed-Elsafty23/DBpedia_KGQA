@@ -7,6 +7,8 @@ retrieval with LLM reasoning when SPARQL fails.
 
 **Course:** Advanced AI: NLP and KGs, WiSe 25/26, Leuphana University
 
+**Live demo:** [huggingface.co/spaces/Mohamed284/DBpedia_KGQA](https://huggingface.co/spaces/Mohamed284/DBpedia_KGQA)
+
 ---
 
 ## Architecture
