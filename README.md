@@ -1,14 +1,3 @@
----
-title: DBpedia KGQA
-emoji: 🔍
-colorFrom: blue
-colorTo: gray
-sdk: gradio
-sdk_version: "6.9.0"
-app_file: app.py
-pinned: false
----
-
 # DBpedia KGQA
 
 Knowledge Graph Question Answering over [DBpedia](https://www.dbpedia.org/).
