@@ -216,7 +216,8 @@ demo = gr.ChatInterface(
     textbox=textbox,
     examples=EXAMPLES,
     cache_examples=False,
-    #title="DBpedia Knowledge Graph Question Answering",
+    title="DBpedia Knowledge Graph QA",
+    description="Ask a natural language question and get an answer from DBpedia.",
     fill_height=True,
 )
 
@@ -241,15 +242,10 @@ PLACEHOLDER = """
     justify-content: center;
     height: 100%;
     min-height: 420px;
-    gap: 12px;
     font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
 ">
-    <h2 style="margin:0; font-size:26px; font-weight:600; color:#0d0d0d; letter-spacing:-0.02em; text-align:center;">
-        DBpedia Knowledge Graph QA
-    </h2>
-    <p style="margin:0; font-size:14px; color:#6e6e80; max-width:380px; text-align:center; line-height:1.5;">
-        Ask a natural language question and get an answer from 
-        <a href="https://www.dbpedia.org/" style="color:#0d0d0d; font-weight:500; text-decoration:underline;">DBpedia</a>.
+    <p style="margin:0; font-size:15px; color:#8e8ea0;">
+        Start by asking a question or choose an example below
     </p>
 </div>
 """
