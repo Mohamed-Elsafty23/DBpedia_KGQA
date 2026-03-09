@@ -1,3 +1,0 @@
-## Team Members
-
-- Mohamed Elsafty
