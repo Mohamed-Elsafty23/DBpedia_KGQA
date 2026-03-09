@@ -244,24 +244,12 @@ PLACEHOLDER = """
     gap: 12px;
     font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
 ">
-    <div style="
-        width: 48px; height: 48px;
-        background: #000;
-        border-radius: 50%;
-        display: flex; align-items: center; justify-content: center;
-        margin-bottom: 4px;
-    ">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
-        </svg>
-    </div>
     <h2 style="margin:0; font-size:26px; font-weight:600; color:#0d0d0d; letter-spacing:-0.02em;">
-        How can I help you today?
+        DBpedia Knowledge Graph QA
     </h2>
     <p style="margin:0; font-size:14px; color:#6e6e80; max-width:380px; text-align:center; line-height:1.5;">
-        Ask anything — powered by the
-        <a href="https://www.dbpedia.org/" style="color:#0d0d0d; font-weight:500; text-decoration:underline;">DBpedia</a>
-        knowledge graph.
+        Ask a natural language question and get an answer from 
+        <a href="https://www.dbpedia.org/" style="color:#0d0d0d; font-weight:500; text-decoration:underline;">DBpedia</a>.
     </p>
 </div>
 """
