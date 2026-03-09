@@ -23,85 +23,97 @@ PLACEHOLDER = (
 )
 
 CSS = """
-/* overall page */
+/* wider layout */
 .gradio-container {
-    max-width: 960px !important;
+    max-width: 1200px !important;
     margin: 0 auto;
-    background: #f8f9fa !important;
+    background: #fafafa !important;
+}
+
+/* hide share button */
+.share-btn, button[title="Share"], .icon-buttons {
+    display: none !important;
 }
 
 /* chatbot area */
 .chatbot {
     background: #ffffff !important;
-    border: 1px solid #dee2e6 !important;
-    border-radius: 12px !important;
+    border: 1px solid #e5e7eb !important;
+    border-radius: 16px !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04) !important;
 }
 
 /* input textbox */
 .textbox textarea,
 .textbox input {
     background: #ffffff !important;
-    border: 2px solid #adb5bd !important;
-    border-radius: 10px !important;
-    padding: 12px 16px !important;
+    border: 1.5px solid #d1d5db !important;
+    border-radius: 12px !important;
+    padding: 14px 18px !important;
     font-size: 15px !important;
-    color: #212529 !important;
+    color: #111827 !important;
+    transition: border-color 0.2s, box-shadow 0.2s !important;
 }
 .textbox textarea:focus,
 .textbox input:focus {
-    border-color: #495057 !important;
-    box-shadow: 0 0 0 3px rgba(73, 80, 87, 0.12) !important;
+    border-color: #6b7280 !important;
+    box-shadow: 0 0 0 3px rgba(107, 114, 128, 0.1) !important;
 }
 .textbox textarea::placeholder,
 .textbox input::placeholder {
-    color: #adb5bd !important;
+    color: #9ca3af !important;
 }
 
 /* example buttons */
 .examples button,
 table.examples button {
-    background: #f1f3f5 !important;
-    border: 1px solid #ced4da !important;
-    border-radius: 8px !important;
-    color: #212529 !important;
+    background: #ffffff !important;
+    border: 1px solid #e5e7eb !important;
+    border-radius: 10px !important;
+    color: #374151 !important;
     font-size: 14px !important;
-    padding: 8px 14px !important;
+    padding: 10px 16px !important;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04) !important;
+    transition: all 0.15s !important;
 }
 .examples button:hover,
 table.examples button:hover {
-    background: #e9ecef !important;
-    border-color: #495057 !important;
+    background: #f3f4f6 !important;
+    border-color: #9ca3af !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.06) !important;
 }
 
 /* send / stop buttons */
 button.primary {
-    background: #343a40 !important;
+    background: #111827 !important;
     border: none !important;
-    border-radius: 10px !important;
+    border-radius: 12px !important;
     color: #fff !important;
+    transition: background 0.15s !important;
 }
 button.primary:hover {
-    background: #212529 !important;
+    background: #1f2937 !important;
 }
 
 /* user message bubble */
 .message.user {
-    background: #e9ecef !important;
-    color: #212529 !important;
-    border-radius: 12px 12px 2px 12px !important;
+    background: #f3f4f6 !important;
+    color: #111827 !important;
+    border-radius: 16px 16px 4px 16px !important;
 }
 
 /* bot message bubble */
 .message.bot {
     background: #ffffff !important;
-    color: #212529 !important;
-    border: 1px solid #dee2e6 !important;
-    border-radius: 12px 12px 12px 2px !important;
+    color: #111827 !important;
+    border: 1px solid #e5e7eb !important;
+    border-radius: 16px 16px 16px 4px !important;
 }
 
 /* title */
 h1 {
-    color: #212529 !important;
+    color: #111827 !important;
+    font-weight: 600 !important;
 }
 """
 
@@ -133,7 +145,7 @@ def respond(message: str, history: list) -> str:
 
 chatbot = gr.Chatbot(
     placeholder=PLACEHOLDER,
-    height=520,
+    height=600,
     show_label=False,
     elem_classes=["chatbot"],
 )
@@ -157,6 +169,7 @@ demo = gr.ChatInterface(
 
 if __name__ == "__main__":
     demo.launch(
+        share=False,
         css=CSS,
         theme=gr.themes.Soft(
             primary_hue=gr.themes.colors.gray,
